@@ -30,7 +30,9 @@ jobs:
         git config --global user.name "Your Name"
         cd "${{github.workspace}}/current"
         git checkout -b update-tool-config
+        git status
         cp -f "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
+        git status
         if [ "$(git diff --ignore-space-at-eol "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json" | wc -l)" -gt "0" ]; then
             echo "ESLint config needs to be updated. These changes are found:"
             git diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
