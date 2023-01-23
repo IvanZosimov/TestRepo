@@ -18,4 +18,5 @@ jobs:
   #      path: 'example'
     - run: |
         cd '${{github.workspace}}/current'
+        ls
         git branch -a
