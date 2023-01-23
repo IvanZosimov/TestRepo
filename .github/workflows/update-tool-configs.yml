@@ -9,11 +9,12 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v3 # downloads current repo
-  #  - uses: actions/checkout@v3 # downloads example repo
-  #    with:
- #       repository: 'actions/reusable-workflows'
-  #      path: 'example'
+      with:
+        path: 'current'
+    - uses: actions/checkout@v3 # downloads example repo
+      with:
+        repository: 'actions/reusable-workflows'
+        path: 'example'
     - run: |
-        cd '${{github.workspace}}'
-        ls -lf
-        git branch -a
+        git diff '${{github.workspace}}/current/.eslintrc.json' '${{github.workspace}}/example/.eslintrc.json'
+
