@@ -1,1 +1,21 @@
 # Some workflow
+name: Update tool configs
+on: 
+    workflow_dispatch:
+    # TO_DO: schedule
+    
+jobs:
+  update-configs:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v3 # downloads current repo
+      with: 
+        path: '${{runner.temp}}/current'
+    - uses: actions/checkout@v3 # downloads example repo
+      with:
+        repository: 'actions/reusable-workflows'
+        path: '${{runner.temp}}/example'
+    - run: |
+        ls "${{runner.temp}}/current"
+        echo "---------------------"
+        ls "${{runner.temp}}/example"
