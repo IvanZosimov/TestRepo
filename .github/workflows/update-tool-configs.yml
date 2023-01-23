@@ -21,4 +21,14 @@ jobs:
             git diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
             exit 1
         fi
-
+      id: diff
+        
+    - name: Update ESLint config file
+      if: ${{failure() && steps.diff.conclusion == 'failure'}}
+      run: |
+        cp -f "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
+        if [ "$(git diff --ignore-space-at-eol "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json" | wc -l)" -gt "0" ]; then
+            echo "ESLint config needs to be updated. These changes are found:"
+            git diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
+            exit 1
+        fi
