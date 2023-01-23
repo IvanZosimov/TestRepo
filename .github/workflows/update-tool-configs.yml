@@ -10,6 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3 # downloads current repo
       with: 
+        repository: 'IvanZosimov/TestRepo'
         path: 'current'
   #  - uses: actions/checkout@v3 # downloads example repo
   #    with:
