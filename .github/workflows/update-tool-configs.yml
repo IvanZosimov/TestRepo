@@ -11,9 +11,9 @@ jobs:
     - uses: actions/checkout@v3 # downloads current repo
       with: 
         path: 'current'
-    - uses: actions/checkout@v3 # downloads example repo
-      with:
-        repository: 'actions/reusable-workflows'
-        path: 'example'
+  #  - uses: actions/checkout@v3 # downloads example repo
+  #    with:
+ #       repository: 'actions/reusable-workflows'
+  #      path: 'example'
     - run: |
         ls '${{github.workspace}}/current'
