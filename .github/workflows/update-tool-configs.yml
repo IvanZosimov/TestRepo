@@ -16,5 +16,9 @@ jobs:
         repository: 'IvanZosimov/reusable-workflows-fork'
         path: 'example'
     - run: |
-        diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
+        if [ "$(git diff --ignore-space-at-eol "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json" | wc -l)" -gt "0" ]; then
+            echo "ESLint config needs to be updated. These changes are found:"
+            git diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
+            exit 1
+        fi
 
