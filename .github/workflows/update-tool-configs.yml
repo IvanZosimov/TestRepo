@@ -16,4 +16,4 @@ jobs:
  #       repository: 'actions/reusable-workflows'
   #      path: 'example'
     - run: |
-        ls '${{github.workspace}}'
+        ls '${{github.workspace}}/current'
