@@ -26,6 +26,8 @@ jobs:
     - name: Update ESLint config file
       if: ${{failure() && steps.diff.conclusion == 'failure'}}
       run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
         cd "${{github.workspace}}/current"
         git checkout -b update-tool-config
         cp -f "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
