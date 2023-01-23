@@ -9,14 +9,11 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v3 # downloads current repo
-      with: 
-        repository: 'IvanZosimov/TestRepo'
-        path: 'current'
   #  - uses: actions/checkout@v3 # downloads example repo
   #    with:
  #       repository: 'actions/reusable-workflows'
   #      path: 'example'
     - run: |
-        cd '${{github.workspace}}/current'
+        cd '${{github.workspace}}'
         ls
         git branch -a
