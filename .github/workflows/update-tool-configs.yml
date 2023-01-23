@@ -10,12 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3 # downloads current repo
       with: 
-        path: '${{github.workspace}}/current'
+        path: 'current'
     - uses: actions/checkout@v3 # downloads example repo
       with:
         repository: 'actions/reusable-workflows'
-        path: '${{github.workspace}}/example'
+        path: 'example'
     - run: |
-        ls "${{github.workspace}}/current"
-        echo "---------------------"
-        ls "${{github.workspace}}/example"
+        ls "${{github.workspace}}"
