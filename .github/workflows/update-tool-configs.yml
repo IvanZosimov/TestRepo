@@ -16,10 +16,4 @@ jobs:
         repository: 'actions/reusable-workflows'
         path: 'example'
     - run: |
-        ls '${{github.workspace}}/example'
-        ls '${{github.workspace}}/current'
-        if [ "$(git diff --ignore-space-at-eol '${{github.workspace}}/../current/.eslintrc.json' '${{github.workspace}}/../example/.eslintrc.json' | wc -l)" -gt "0" ]; then
-            echo "Detected eslint config changes. See them below:"
-            git diff '${{github.workspace}}/../current/.eslintrc.json' '${{github.workspace}}/../example/.eslintrc.json'
-            exit 1
-        fi
+        git diff '${{github.workspace}}/example' '${{github.workspace}}/current'
