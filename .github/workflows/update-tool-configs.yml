@@ -15,5 +15,5 @@ jobs:
   #      path: 'example'
     - run: |
         cd '${{github.workspace}}'
-        ls
+        ls -lf
         git branch -a
