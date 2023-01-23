@@ -13,9 +13,8 @@ jobs:
         path: 'current'
     - uses: actions/checkout@v3 # downloads example repo
       with:
-        repository: 'actions/reusable-workflows'
+        repository: 'actions/reusable-workflows-fork'
         path: 'example'
     - run: |
-        cat "${{github.workspace}}/current/.eslintrc.json"
-        cat "${{github.workspace}}/example/.eslintrc.json"
+        diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
 
