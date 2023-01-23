@@ -16,5 +16,6 @@ jobs:
         repository: 'actions/reusable-workflows'
         path: 'example'
     - run: |
-        git diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
+        cat "${{github.workspace}}/current/.eslintrc.json"
+        cat "${{github.workspace}}/example/.eslintrc.json"
 
