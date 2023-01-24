@@ -1,8 +1,8 @@
-# Some workflow
 name: Update tool configs
 on: 
     workflow_dispatch:
-    # TO_DO: schedule
+    repository_dispatch:
+      types: [test]
     
 jobs:
   update-configs:
@@ -11,35 +11,35 @@ jobs:
     - uses: actions/checkout@v3 # downloads current repo
       with:
         path: 'current'
+        
     - uses: actions/checkout@v3 # downloads example repo
       with:
         repository: 'IvanZosimov/reusable-workflows-fork'
         path: 'example'
-    - run: |
-        if [ "$(git diff --ignore-space-at-eol "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json" | wc -l)" -gt "0" ]; then
-            echo "ESLint config needs to be updated. These changes are found:"
-            git diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
-            exit 1
-        fi
-      id: diff
+
+    - name: Update configuration files
+      run: |       
+        git config --global user.name automation
+        git config --global user.email github-actions@github.com
         
-    - name: Update ESLint config file
-      if: ${{failure() && steps.diff.conclusion == 'failure'}}
-      run: |
         cd "${{github.workspace}}/current"
-        git config user.name github-actions
-        git config user.email github-actions@github.com
         git checkout -b update-tool-config
-        git status
+
         cp -f  "${{github.workspace}}/example/.eslintrc.json" "${{github.workspace}}/current/.eslintrc.json"
-        git status
-        if [ "$(git diff --ignore-space-at-eol "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json" | wc -l)" -gt "0" ]; then
-            echo "ESLint config needs to be updated. These changes are found:"
-            git diff "${{github.workspace}}/current/.eslintrc.json" "${{github.workspace}}/example/.eslintrc.json"
-            exit 1
-        fi
+        cp -f  "${{github.workspace}}/example/.prettierrc.json" "${{github.workspace}}/current/.prettierrc.json"
+        
         git add .
-        git commit -m "Update tool config"
+        git commit -m "Update tool configuration files"
         git push origin update-tool-config
+    
+    - name: Create pull request
+      run: |
+        curl \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer $PAT"\
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/IvanZosimov/TestRepo/pulls \
+          -d '{"title":"ESLinter and Prettier configurations update","body":"Please pull these awesome changes in!","head":"update-tool-config","base":"main"}'
         
         
