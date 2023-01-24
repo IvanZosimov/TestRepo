@@ -1,0 +1,11 @@
+name: Test triggered workflow
+on: 
+   repository_dispatch:
+      types: [test]
+    
+    
+jobs:
+  update-configs:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - run: echo "triggered"
