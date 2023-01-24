@@ -21,6 +21,7 @@ jobs:
       run: |       
         git config --global user.name automation
         git config --global user.email github-actions@github.com
+        git config --global pull.rebase true
         
         cd "${{github.workspace}}/current"
         git checkout -b update-tool-config-branch
