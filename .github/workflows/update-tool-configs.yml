@@ -24,14 +24,13 @@ jobs:
         
         cd "${{github.workspace}}/current"
         git checkout -b update-tool-config-branch
-        git pull origin update-tool-config-branch
 
         cp -f  "${{github.workspace}}/example/.eslintrc.json" "${{github.workspace}}/current/.eslintrc.json"
         cp -f  "${{github.workspace}}/example/.prettierrc.json" "${{github.workspace}}/current/.prettierrc.json"
         
         git add .
         git commit -m "Update tool configuration files"
-        git push origin update-tool-config-branch
+        git push origin update-tool-config-branch -f
     
     - name: Create pull request
       run: |
