@@ -47,6 +47,6 @@ jobs:
           -H "Authorization: Bearer ${{github.token}}"\
           -H "X-GitHub-Api-Version: 2022-11-28" \
           https://api.github.com/repos/IvanZosimov/TestRepo/pulls \
-          -d '{"title":"ESLinter/Prettier configurations update","body":"Please pull these awesome changes in!","head":"update-tool-config","base":"main"}'
+          -d '{"title":"ESLinter/Prettier configurations update","body":"Please pull these awesome changes in!","head":"update-tool-config-branch","base":"main"}'
         
         
