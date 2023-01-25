@@ -34,6 +34,7 @@ jobs:
     - name: Create commit and push changes
       run: |     
         
+        cd "./current"
         git add .
         git commit -m "Update tool configuration files"
         git push origin update-tool-config-branch -f
