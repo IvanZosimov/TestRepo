@@ -28,8 +28,8 @@ jobs:
         cd "./current"
         git checkout -b update-tool-config-branch
 
-        cp -f  "${{github.workspace}}/example/.eslintrc.json" "${{github.workspace}}/current/.eslintrc.json"
-        cp -f  "${{github.workspace}}/example/.prettierrc.json" "${{github.workspace}}/current/.prettierrc.json"
+        cp -f  "${{github.workspace}}/example/.eslintrc.json" "${{github.workspace}}/current/"
+        cp -f  "${{github.workspace}}/example/.prettierrc.json" "${{github.workspace}}/current/"
         
     - name: Create commit and push changes
       run: |     
