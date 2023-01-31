@@ -6,7 +6,6 @@ on:
     
 jobs:
   update-configs:
-    continue-on-error: true
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v3 # downloads current repo
@@ -33,6 +32,7 @@ jobs:
         cp -f  "${{github.workspace}}/example/.prettierrc.json" "${{github.workspace}}/current/"
         
     - name: Create commit and push changes
+      continue-on-error: true
       run: |     
         
         cd "./current"
