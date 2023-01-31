@@ -42,7 +42,7 @@ jobs:
             echo "STATUS=true" >> $GITHUB_OUTPUT
         else
         
-            echo "::notice title='Workflow notice'::No updates were found in the example repo."
+            echo "::notice title=Workflow notice::No updates were found in the example repo."
             echo "STATUS=false" >> $GITHUB_OUTPUT
         fi     
     
