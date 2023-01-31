@@ -37,7 +37,7 @@ jobs:
         cd "./current"
         git add .
         git commit -m "Update tool configuration files"
-        git push origin update-tool-config-branch -f
+        git push origin update-tool-config -f
     
     - name: Create pull request
       run: |
