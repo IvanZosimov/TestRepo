@@ -41,7 +41,8 @@ jobs:
             git push origin update-tool-config -f
             echo "STATUS=true" >> $GITHUB_OUTPUT
         else
-            echo "::notice::No updates were found in the example repo."
+        
+            echo "::notice title='Workflow notice'::No updates were found in the example repo."
             echo "STATUS=false" >> $GITHUB_OUTPUT
         fi     
     
