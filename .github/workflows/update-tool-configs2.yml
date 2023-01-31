@@ -32,13 +32,15 @@ jobs:
         cp -f  "${{github.workspace}}/example/.prettierrc.json" "${{github.workspace}}/current/"
         
     - name: Create commit and push changes
-      continue-on-error: true
       run: |     
         
         cd "./current"
         git add .
-        git commit -m "Update tool configuration files"
-        git push origin update-tool-config -f
+        if [git commit -m "Update tool configuration files"]; then
+            git push origin update-tool-config -f
+        else
+            echo "No updates were found in the example repo"
+        fi     
     
     - name: Create pull request
       run: |
