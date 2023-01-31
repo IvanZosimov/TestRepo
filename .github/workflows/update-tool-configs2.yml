@@ -32,18 +32,21 @@ jobs:
         cp -f  "${{github.workspace}}/example/.prettierrc.json" "${{github.workspace}}/current/"
         
     - name: Create commit and push changes
+      id: successful-commit
       run: |     
         
         cd "./current"
         git add .
         if git commit -m "Update tool configuration files"; then
             git push origin update-tool-config -f
+            echo "STATUS=true" >> $GITHUB_OUTPUT
         else
             echo "::notice::No updates were found in the example repo."
-            exit 1
+            echo "STATUS=false" >> $GITHUB_OUTPUT
         fi     
     
     - name: Create pull request
+      if: ${{ steps.successful-commit.outputs.STATUS == 'true' }}
       run: |
          curl \
           -X POST \
