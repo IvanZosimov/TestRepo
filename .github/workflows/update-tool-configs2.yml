@@ -36,7 +36,7 @@ jobs:
         
         cd "./current"
         git add .
-        if [git commit -m "Update tool configuration files"]; then
+        if git commit -m "Update tool configuration files"; then
             git push origin update-tool-config -f
         else
             echo "No updates were found in the example repo"
