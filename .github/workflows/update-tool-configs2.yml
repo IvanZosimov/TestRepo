@@ -40,6 +40,7 @@ jobs:
             git push origin update-tool-config -f
         else
             echo "::notice::No updates were found in the example repo."
+            exit 1
         fi     
     
     - name: Create pull request
