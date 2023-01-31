@@ -1,4 +1,4 @@
-name: Update tool configs
+name: Update tool configs 2
 on: 
     workflow_dispatch:
     schedule:
