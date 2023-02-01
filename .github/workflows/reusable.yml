@@ -7,4 +7,4 @@ on:
 jobs:
   call-reusable:
     name: update config
-    uses: IvanZosimov/reusable-workflows-fork/.github/workflows/update-tool-config-reusable.yml.yml@main
+    uses: IvanZosimov/reusable-workflows-fork/.github/workflows/update-tool-config-reusable.yml@main
