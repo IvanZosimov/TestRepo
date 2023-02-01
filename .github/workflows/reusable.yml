@@ -1,7 +1,7 @@
 name: Update config
 
 on:
-  workflow-dispatch:
+  workflow_dispatch:
   # schedule
 
 jobs:
