@@ -28,7 +28,7 @@ jobs:
         cd "./current"
         git checkout -b update-tool-config
 
-        cp -f -r "${{github.workspace}}/example/*" "${{github.workspace}}/current/"
+        cp -f -r ${{github.workspace}}/example/* ${{github.workspace}}/current/
         
     - name: Create commit and push changes
       id: successful-commit
