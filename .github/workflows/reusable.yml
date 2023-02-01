@@ -8,5 +8,3 @@ jobs:
   call-reusable:
     name: Update config
     uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
-    with:
-      target-files: ".eslintrc.json"
