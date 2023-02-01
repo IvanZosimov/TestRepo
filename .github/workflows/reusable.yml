@@ -6,5 +6,5 @@ on:
 
 jobs:
   call-reusable:
-    name: update config
-    uses: IvanZosimov/reusable-workflows-fork/.github/workflows/update-tool-config-reusable.yml@main
+    name: Update config
+    uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
