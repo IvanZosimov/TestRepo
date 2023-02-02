@@ -8,3 +8,7 @@ on:
 jobs:
   update-config-files-call:
     uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
+    with:
+      base-pr-branch: "test"
+      target-files: "*.json"
+      target-folder: "nonRootConfigFolder"
