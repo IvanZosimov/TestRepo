@@ -10,3 +10,4 @@ jobs:
     uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
     with:
       target-files: ".prettierrc.json"
+      path-to-config-files: "./configFolder"
