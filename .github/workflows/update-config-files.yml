@@ -10,5 +10,4 @@ jobs:
     uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
     with:
       base-pr-branch: "testNegative"
-      target-files: "abc"
       target-folder: "./nonRootConfigFolder"
