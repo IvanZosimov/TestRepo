@@ -9,4 +9,5 @@ jobs:
   update-config-files-call:
     uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
     with:
-      target-folder: "nonRootConfigFolder"
+      head-pr-branch: "main"
+      
