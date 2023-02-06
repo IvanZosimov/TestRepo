@@ -9,6 +9,6 @@ jobs:
   update-config-files-call:
     uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
     with: 
-      base-pr-branch: "wrong-reference-filename"
-      head-pr-branch: "test-head-branch-2"
-      reference-files: "wrong.json"
+      base-pr-branch: "wrong-foldername"
+      head-pr-branch: "test-head-branch-3"
+      target-folder: "wrong"
