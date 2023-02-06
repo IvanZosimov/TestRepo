@@ -9,7 +9,6 @@ jobs:
   update-config-files-call:
     uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
     with: 
-      base-pr-branch: "all-inputs"
-      head-pr-branch: "test-head-branch"
-      target-folder: "./nonRootConfigFolder"
-      reference-files: ".eslintrc.json, *.json"
+      base-pr-branch: "wrong-reference-filename"
+      head-pr-branch: "test-head-branch-2"
+      reference-files: "wrong.json"
