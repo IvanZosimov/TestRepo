@@ -11,5 +11,5 @@ jobs:
     with:
       base-pr-branch: "test"
       head-pr-branch: "any-non-conficting-name"
-      target-files: ".eslintrc.json"
+      reference-files: ".eslintrc.json"
       target-folder: "./nonRootConfigFolder"
