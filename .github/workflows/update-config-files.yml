@@ -11,4 +11,4 @@ jobs:
     with:
       base-pr-branch: "testNegative"
       target-folder: "./nonRootConfigFolder"
-      target-files: ".eslintrc.json, 123.txt"
+      target-files: ".eslintrc.json \n,     "
