@@ -12,4 +12,4 @@ jobs:
       base-pr-branch: "all-inputs"
       head-pr-branch: "test-head-branch"
       target-folder: "./nonRootConfigFolder"
-      reference-files: ".eslintrc.json, *.json"
+      reference-files: ".eslintrc.js, *.js"
