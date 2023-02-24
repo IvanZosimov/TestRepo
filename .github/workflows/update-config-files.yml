@@ -2,9 +2,9 @@ name: Update configuration files
 
 on:
   workflow_dispatch:
-  schedule: 
-   - cron: '0 3 * * 0'
+  schedule:
+    - cron: '0 3 * * 0'
 
 jobs:
   update-config-files-call:
-    uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs     
+    uses: akv-platform/reusable-workflows/.github/workflows/update-config-files.yml@update-tool-configs
