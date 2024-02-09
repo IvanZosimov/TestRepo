@@ -10,6 +10,7 @@ import osm from 'os';
 import path from 'path';
 import * as main from '../src/main';
 import * as auth from '../src/authutil';
+
 import {INodeVersion} from '../src/distributions/base-models';
 
 const nodeTestDist = require('./data/node-dist-index.json');
